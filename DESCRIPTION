@@ -1,0 +1,9 @@
+Package: MergerEffects
+Title: Merger Effects Estimation
+Version: 1.0
+Description: R implementation of the Mathematica model.
+Depends: R (>= 3.2.3)
+Imports: nleqslv, numDeriv, foreach, doParallel
+License: N/A
+Encoding: UTF-8
+LazyData: true
