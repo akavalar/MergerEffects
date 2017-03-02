@@ -46,7 +46,7 @@ simulateLinLog <- function(slope,
   
   # post-merger prices
   for (i in 1:retries) {
-    p1 <- nleqslv::nleqslv((p0+abs(rnorm(length(p0),0,1))),PostFOCsFun) # add random noise to Serge's starting point (p0)
+    p1 <- nleqslv::nleqslv((p0+abs(rnorm(length(p0),0,1))),PostFOCsFun) # add random noise to our starting point (p0)
     
     # if unique solution found
     if (p1$termcd == 1) {

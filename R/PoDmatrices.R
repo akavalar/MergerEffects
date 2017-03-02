@@ -28,7 +28,7 @@ nestsPODmatrix <- function(q0,
         SFD[i,j] <- ifelse(i==j, s0[i], s0[j]*beta[i])
       }
     }
-    SFD[,1] <- s0[1]*c(1, rep(gamma,n-1)) # 2nd factor is Serge's gammaVec
+    SFD[,1] <- s0[1]*c(1, rep(gamma,n-1))
     return(SFD)
   }
   
