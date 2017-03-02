@@ -14,7 +14,7 @@ Install the MergerEffects package by running something like this:
 ## Structure of the package
 ![Tree Structure](/Structure.png?raw=true "Nested hierarchy of MergerEffects functions")
 
-The main user-facing function are mergerSimulate() and writeToFile(), especially if one wants to iterate over all possible combinations of input parameters.
+The main user-facing function are `mergerSimulate()` and `writeToFile()`, especially if one wants to iterate over all possible combinations of input parameters.
 
 ## Features
 - Easy to use, fast, flexible, efficient ("Compute once!"), modular and therefore extendable.
@@ -59,9 +59,8 @@ As a rough sketch, every merger simulation consists of two parts:
 
 **Step 1: "Calibration"**
 
-- Using observed actual industry data, tease out the parameters of N demand functions for N products in the pre-merger world
-- We reverse the typical thought process: by observing the equilibrium outcomes, we can infer what kind of demand system would generate such outcomes
-- Data required
+- Using observed actual industry data, we tease out the parameters of N demand functions for N products in the pre-merger world. By observing the equilibrium outcomes, we can infer what kind of demand system generated such outcomes.
+- Data required:
   - Actual prices, quantities, margins/costs for each of N products
   - Ownership and control structure
   - Degree of competition between all products ("diversion ratios")
@@ -70,9 +69,8 @@ As a rough sketch, every merger simulation consists of two parts:
 **Step 2: "Simulation"**
 
 - Armed with the knowledge of consumer behavior (i.e. knowing how the demand system looks like), we simulate the merger by changing the ownership and control structure of the economy. This allows us to find the new optimal prices and quantities in the post-merger environment using the same demand functions identified in Step 1.
-- Data required
+- Data required:
   - New ownership and control structure
   - Potentially new lower costs due to merger synergies
   
 I might write a more detailed memo on the theory behind merger simulations at some point in the future.
-
