@@ -15,7 +15,7 @@ Install the MergerEffects package by running something like this:
 ![Tree Structure](/Structure.png?raw=true "Nested hierarchy of MergerEffects functions")
 
 ## Inputs
-Here I assume that you are running the simulations using `mergerSimulate()` to simulate a merger involving N products and M companies.
+Here I assume you are using `mergerSimulate()` to simulate a merger involving N products and M companies.
 - q0: vector of N quantities
 - p0: vector of N prices
 - margins: vector of N margins
@@ -26,10 +26,16 @@ Here I assume that you are running the simulations using `mergerSimulate()` to s
 - PoD: a list of all possible NxN matrices showing the proportions of diversion; all entries in a given row in the matrix must add up to 1 and the diagonal elements must all be 0; matrices can be replaced by "quantity" or "nests" strings, in which case a quantity-based PoD matrix and/or the nests-based PoD matrix are automatically calculated and used by the code; use a list even if it contains just one matrix or one string!
 - delta: curvature parameter of the linear demand functions only; either scalar or vector of arbitrary length
 - shape: choice of the the demand system (1 = linear; 2 = AIDS; 3 = LinLog); either scalar or vector of up to length 3
-- marketElasticity: self-explanatory (but make sure elasticities are negative); either scalar or vector of arbitrary length
+- marketElasticity: should be self-explanatory (but make sure elasticities are negative); either scalar or vector of arbitrary length
 - gamma: scalar used in the calculation of the nests-based PoD matrix
 - e_1, e_2, ..., e_N: less-than-or-equal-to-N number of either scalars or vectors of arbitrary length defining all possible eficiencies ("savings") for each product (if some e_i not supplied, default value = 0)
 - cores: scalar, number of cores used (default value = 0, i.e. sequential computation)
 - diagnostics: scalar, logging of diagnostic info (default value = 0, no logging)
 - tol: scalar, maximum tolerance level (default value = 1e-6)
 - retries: scalar, maximum number of attempts when numerically optimizing functions
+
+## Outputs
+The output of the `mergerSimulate()` function is a dataframe containing both the results of each iteration, the (varying) data and potentially also diagnostic information associated with that particular iteration of the model. Each cell of the dataframe is a list.
+
+Variables stored inside the dataframe that begin with *check* are returned only if logging of diagnostic info is enabled (i.e., if diagnostic = 1). Variables starting with *data* indicate the (varying) data inputs used with a particular iteration of the model.
+The `writeToFile()` and `writeToFile2()` functions will output the indices and the varying input data to a pipe-delimited CSV file.
